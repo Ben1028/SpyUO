@@ -93,10 +93,9 @@ namespace Ultima.Spy.Application
 				{
 					if ( ClientSpyStarter.GetClientType( process ) != UltimaClientType.Invalid )
 					{
-						_Selected = process;
+						//_Selected = process;
+                        userList.Add(process);
 					}
-
-					userList.Add( process );
 				}
 				catch
 				{
@@ -160,12 +159,14 @@ namespace Ultima.Spy.Application
 					ImageSource icon = null;
 					string filePath = null;
 					string name = null;
+				    string title = null;
 
 					try
 					{
 						name = process.ProcessName;
 						filePath = process.MainModule.FileName;
 						icon = GetProcessIcon( filePath );
+					    title = process.MainWindowTitle;
 					}
 					catch
 					{
@@ -173,7 +174,7 @@ namespace Ultima.Spy.Application
 					}
 
 					ProcessImage.Source = icon;
-					ProcessName.Text = process.ProcessName;
+				    ProcessName.Text = title ?? process.ProcessName;
 
 					_Selected = process;
 				}
