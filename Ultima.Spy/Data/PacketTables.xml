@@ -12,7 +12,6 @@
 		<table id="0x14" name="Context Menu" type="word" />
 		<table id="0x19" name="Miscellaneous Status" />
 		<table id="0x20" name="House Customization" offset="4" />
-    <table id="0x33" name="Party" />
 	</table>
 	<table id="0xD7" name="Encoded Command" type="word" offset="6" />
 	<table id="0xDA" name="Mahjong Game" type="word" offset="6" />
