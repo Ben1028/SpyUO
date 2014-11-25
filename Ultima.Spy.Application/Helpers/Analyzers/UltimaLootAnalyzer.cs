@@ -170,7 +170,7 @@ namespace Ultima.Spy.Application
 				{
 					ContainerItem corpse = corpseContainer.Items[ 0 ];
 
-					if ( !corpsesToContainers.TryGetValue( corpse.Serial, out container ) )
+					if ( !corpsesToContainers.TryGetValue( corpseContainer.Serial, out container ) )
 						continue;
 				}
 				else
@@ -207,7 +207,9 @@ namespace Ultima.Spy.Application
 							armorDefinition = itemDefinition as UltimaArmorDefinition;
 						}
 
-						if ( itemsToProperties.ContainsKey( item.Serial ) )
+						if ( !itemsToProperties.ContainsKey( item.Serial ) )
+                            continue;
+
 							properties = itemsToProperties[ item.Serial ];
 
 						string name = GetItemName( properties.Properties[ 0 ] );

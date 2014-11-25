@@ -220,7 +220,7 @@
 					</Ellipse.RenderTransform>
 				</Ellipse>
 				<TextBlock Grid.Column="1" x:Name="LoadingText" Style="{StaticResource LootFooterText}" />
-				<Button Grid.Column="3" Style="{StaticResource LootAnalyzeButton}" ToolTip="Start analyzing selected mobiles" Click="AnalyzeMobiles_Click">
+				<Button Grid.Column="3" Style="{StaticResource LootAnalyzeButton}" ToolTip="Start analyzing selected mobiles" Click="AnalyzeMobiles_Click" Height="23" Margin="2,1,2,0" VerticalAlignment="Top">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="Images/ChartPie.png" />
 						<TextBlock Text="Analyze" Style="{StaticResource LootFooterText}" />

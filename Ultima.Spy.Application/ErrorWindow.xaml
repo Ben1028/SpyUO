@@ -1,9 +1,9 @@
 ﻿<Window x:Class="Ultima.Spy.Application.ErrorWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		Title="" MinHeight="150" MinWidth="200" MaxWidth="600" ShowInTaskbar="False"
+		Title="" MinHeight="150" MinWidth="200" MaxWidth="600"
 		Icon="/SpyUO;component/SpyUO.ico" SizeToContent="WidthAndHeight"
-		WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Background="{StaticResource WindowBackground}">
+		WindowStartupLocation="CenterOwner" Background="{StaticResource WindowBackground}" Topmost="True">
 	<Window.Resources>
 		<Style x:Key="ErrorTitle" TargetType="TextBox" BasedOn="{StaticResource ReadOnlyTextBox}">
 			<Setter Property="FontSize" Value="14" />
