@@ -11,64 +11,37 @@ namespace Ultima.Spy.Packets
 	public class AnimationOldPacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
-
 		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+		public uint Serial { get { return _Serial; } }
 
 		private int _Action;
-
 		[UltimaPacketProperty]
-		public int Action
-		{
-			get { return _Action; }
-		}
+		public int Action { get { return _Action; } }
 
 		private int _FrameCount;
-
 		[UltimaPacketProperty]
-		public int FrameCount
-		{
-			get { return _FrameCount; }
-		}
+		public int FrameCount { get { return _FrameCount; } }
 
 		private int _RepeatTimes;
-
 		[UltimaPacketProperty]
-		public int RepeatTimes
-		{
-			get { return _RepeatTimes; }
-		}
+		public int RepeatTimes { get { return _RepeatTimes; } }
 
 		private int _Forward;
-
 		[UltimaPacketProperty]
-		public int Forward
-		{
-			get { return _Forward; }
-		}
+		public int Forward { get { return _Forward; } }
 
 		private int _Repeat;
-
 		[UltimaPacketProperty]
-		public int Repeat
-		{
-			get { return _Repeat; }
-		}
+		public int Repeat { get { return _Repeat; } }
 
 		private int _Delay;
-
 		[UltimaPacketProperty]
-		public int Delay
-		{
-			get { return _Delay; }
-		}
+		public int Delay { get { return _Delay; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
 			reader.ReadByte(); // ID
+
 			_Serial = reader.ReadUInt32();
 			_Action = reader.ReadInt16();
 			_FrameCount = reader.ReadInt16();

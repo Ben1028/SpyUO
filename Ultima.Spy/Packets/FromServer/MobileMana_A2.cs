@@ -7,32 +7,21 @@ namespace Ultima.Spy.Packets
     public class MobileManaPacket : UltimaPacket, IUltimaEntity
     {
         private uint _Serial;
-
         [UltimaPacketProperty("Serial", "0x{0:X}")]
-        public uint Serial
-        {
-            get { return _Serial; }
-        }
+        public uint Serial { get { return _Serial; } }
 
         private int _Mana;
-
         [UltimaPacketProperty]
-        public int Mana
-        {
-            get { return _Mana; }
-        }
+        public int Mana { get { return _Mana; } }
 
         private int _MaxMana;
-
         [UltimaPacketProperty]
-        public int MaxMana
-        {
-            get { return _MaxMana; }
-        }
+        public int MaxMan { get { return _MaxMana; } }
 
         protected override void Parse(BigEndianReader reader)
         {
             reader.ReadByte(); // ID
+
             _Serial = reader.ReadUInt32();
             _MaxMana = reader.ReadInt16();
             _Mana = reader.ReadInt16();

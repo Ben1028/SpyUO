@@ -10,44 +10,24 @@ namespace Ultima.Spy.Packets
 	public class GumpResponsePacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
-
 		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+        public uint Serial { get { return _Serial; } }
 
 		private int _GumpID;
-		
 		[UltimaPacketProperty( "Gump ID", "0x{0:X}" )]
-		public int GumpID
-		{
-			get { return _GumpID; }
-		}
+		public int GumpID { get { return _GumpID; } }
 
 		private int _ButtonID;
-		
 		[UltimaPacketProperty( "Button ID" )]
-		public int ButtonID
-		{
-			get { return _ButtonID; }
-		}
+		public int ButtonID { get { return _ButtonID; } }
 
 		private List<int> _Switches;
-
 		[UltimaPacketProperty]
-		public List<int> Switches
-		{
-			get { return _Switches; }
-		}
+		public List<int> Switches { get { return _Switches; } }
 
 		private List<GumpResponseTextEntry> _TextEntries;
-
 		[UltimaPacketProperty( "Text Entries" )]
-		public List<GumpResponseTextEntry> TextEntries
-		{
-			get { return _TextEntries; }
-		}
+		public List<GumpResponseTextEntry> TextEntries { get { return _TextEntries; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
@@ -75,20 +55,12 @@ namespace Ultima.Spy.Packets
 	public class GumpResponseTextEntry
 	{
 		private int _EntryID;
-
 		[UltimaPacketProperty( "Text Entry ID" )]
-		public int EntryID
-		{
-			get { return _EntryID; }
-		}
+		public int EntryID { get { return _EntryID; } }
 
 		private string _Text;
-
 		[UltimaPacketProperty( "Text" )]
-		public string Text
-		{
-			get { return _Text; }
-		}
+		public string Text { get { return _Text; } }
 
 		public GumpResponseTextEntry( BigEndianReader reader )
 		{

@@ -9,53 +9,29 @@ namespace Ultima.Spy.Packets
 	[UltimaPacket( "Generic Gump", UltimaPacketDirection.FromServer, 0xB0 )]
 	public class GenericGumpPacket : UltimaPacket, IUltimaEntity
 	{
-		protected uint _Serial;
-
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+        private uint _Serial;
+        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        public uint Serial { get { return _Serial; } }
 
 		protected int _GumpID;
-
 		[UltimaPacketProperty( "Gump ID", "0x{0:X}" )]
-		public int GumpID
-		{
-			get { return _GumpID; }
-		}
+		public int GumpID { get { return _GumpID; } }
 
 		protected int _X;
-
 		[UltimaPacketProperty]
-		public int X
-		{
-			get { return _X; }
-		}
+		public int X { get { return _X; } }
 
 		protected int _Y;
-
 		[UltimaPacketProperty]
-		public int Y
-		{
-			get { return _Y; }
-		}
+		public int Y { get { return _Y; } }
 
 		protected List<GumpEntry> _Entries;
-
 		[UltimaPacketProperty]
-		public List<GumpEntry> Entries
-		{
-			get { return _Entries; }
-		}
+		public List<GumpEntry> Entries { get { return _Entries; } }
 
 		protected List<string> _Text;
-
 		[UltimaPacketProperty]
-		public List<string> Text
-		{
-			get { return _Text; }
-		}
+		public List<string> Text { get { return _Text; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
@@ -209,19 +185,11 @@ namespace Ultima.Spy.Packets
 		}
 
 		private string[] _Commands;
-
 		[UltimaPacketProperty]
-		public string[] Commands
-		{
-			get { return _Commands; }
-		}
+		public string[] Commands { get { return _Commands; } }
 
 		private GenericGumpPacket _Parent;
-
-		public GenericGumpPacket Parent
-		{
-			get { return _Parent; }
-		}
+		public GenericGumpPacket Parent { get { return _Parent; } }
 
 		public GumpEntry( string[] commands, GenericGumpPacket parent )
 		{
@@ -229,41 +197,23 @@ namespace Ultima.Spy.Packets
 			_Parent = parent;
 		}
 
-		public int GetInt32( int n )
-		{
-			return Int32.Parse( _Commands[ n ] );
-		}
+		public int GetInt32( int n ) { return Int32.Parse( _Commands[ n ] ); }
 
-		public uint GetUInt32( int n )
-		{
-			return UInt32.Parse( _Commands[ n ] );
-		}
+		public uint GetUInt32( int n ) { return UInt32.Parse( _Commands[ n ] ); }
 
-		public bool GetBoolean( int n )
-		{
-			return GetInt32( n ) != 0;
-		}
+		public bool GetBoolean( int n ) { return GetInt32( n ) != 0; }
 
 		public string GetString( int n )
-		{
+        {
 			string cmd = _Commands[ n ];
 			return cmd.Substring( 1, cmd.Length - 2 );
 		}
 
-		public string GetText( int n )
-		{
-			return _Parent.Text[ n ];
-		}
+		public string GetText( int n ) { return _Parent.Text[ n ]; }
 
-		public static string Format( bool b )
-		{
-			return b ? "true" : "false";
-		}
+		public static string Format( bool b ) { return b ? "true" : "false"; }
 
-		public static string Format( string s )
-		{
-			return s.Replace( "\t", "\\t" );
-		}
+		public static string Format( string s ) { return s.Replace( "\t", "\\t" ); }
 
 		public abstract string GetRunUOLine();
 	}
@@ -275,15 +225,8 @@ namespace Ultima.Spy.Packets
 		{
 		}
 
-		public override string GetRunUOLine()
-		{
-			return "Dragable = false;";
-		}
-
-		public override string ToString()
-		{
-			return "Not Dragable";
-		}
+		public override string GetRunUOLine() { return "Dragable = false;"; }
+		public override string ToString() { return "Not Dragable"; }
 	}
 
 	public class GumpNotClosable : GumpEntry
@@ -293,15 +236,8 @@ namespace Ultima.Spy.Packets
 		{
 		}
 
-		public override string GetRunUOLine()
-		{
-			return "Closable = false;";
-		}
-
-		public override string ToString()
-		{
-			return "Not Closable";
-		}
+		public override string GetRunUOLine() { return "Closable = false;"; }
+		public override string ToString() { return "Not Closable"; }
 	}
 
 	public class GumpNotDisposable : GumpEntry
@@ -311,15 +247,8 @@ namespace Ultima.Spy.Packets
 		{
 		}
 
-		public override string GetRunUOLine()
-		{
-			return "Disposable = false;";
-		}
-
-		public override string ToString()
-		{
-			return "Not Disposable";
-		}
+		public override string GetRunUOLine() { return "Disposable = false;"; }
+		public override string ToString() { return "Not Disposable"; }
 	}
 
 	public class GumpNotResizable : GumpEntry
@@ -329,15 +258,8 @@ namespace Ultima.Spy.Packets
 		{
 		}
 
-		public override string GetRunUOLine()
-		{
-			return "Resizable = false;";
-		}
-
-		public override string ToString()
-		{
-			return "Not Resizable";
-		}
+		public override string GetRunUOLine() { return "Resizable = false;"; }
+		public override string ToString() { return "Not Resizable"; }
 	}
 
 	public class GumpAlphaRegion : GumpEntry
@@ -362,8 +284,8 @@ namespace Ultima.Spy.Packets
 		}
 
 		public override string GetRunUOLine()
-		{
-			return string.Format( "AddAlphaRegion( {0}, {1}, {2}, {3} );", _X, _Y, _Width, _Height );
+        {
+            return string.Format( "AddAlphaRegion( {0}, {1}, {2}, {3} );", _X, _Y, _Width, _Height );
 		}
 
 		public override string ToString()

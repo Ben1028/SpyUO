@@ -7,25 +7,18 @@ namespace Ultima.Spy.Packets
     public class MobileQueryPacket : UltimaPacket, IUltimaEntity
     {
         private uint _Serial;
-
         [UltimaPacketProperty("Serial", "0x{0:X}")]
-        public uint Serial
-        {
-            get { return _Serial; }
-        }
+        public uint Serial { get { return _Serial; } }
 
         private int _Type;
-
         [UltimaPacketProperty]
-        public int Type
-        {
-            get { return _Type; }
-        }
+        public int Type { get { return _Type; } }
 
         protected override void Parse(BigEndianReader reader)
         {
             reader.ReadByte(); // ID
             reader.ReadUInt32();
+
             _Type = reader.ReadByte();
             _Serial = reader.ReadUInt32();
         }

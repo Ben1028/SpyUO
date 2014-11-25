@@ -19,116 +19,60 @@ namespace Ultima.Spy.Packets
 	[UltimaPacket( "World Object", UltimaPacketDirection.FromServer, 0xF3 )]
 	public class WorldObjectPacket : UltimaPacket, IUltimaEntity
 	{
-		private uint _Serial;
-
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+        private uint _Serial;
+        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        public uint Serial { get { return _Serial; } }
 
 		private WorldObjectType _DataType;
-
 		[UltimaPacketProperty( "Data Type", "{0:D} - {0}" )]
-		public WorldObjectType DataType
-		{
-			get { return _DataType; }
-		}
+		public WorldObjectType DataType { get { return _DataType; } }
 
 		private int _ObjectID;
-
 		[UltimaPacketProperty( "Object ID", "0x{0:X}" )]
-		public int ObjectID
-		{
-			get { return _ObjectID; }
-		}
+		public int ObjectID { get { return _ObjectID; } }
 
 		private int _ObjectIDOffset;
-
 		[UltimaPacketProperty( "Object ID Offset" )]
-		public int ObjectIDOffset
-		{
-			get { return _ObjectIDOffset; }
-		}
+		public int ObjectIDOffset { get { return _ObjectIDOffset; } }
 
 		[UltimaPacketProperty( UltimaPacketPropertyType.Texture )]
-		public int Texture
-		{
-			get { return _ObjectID + _ObjectIDOffset; }
-		}
+		public int Texture { get { return _ObjectID + _ObjectIDOffset; } }
 
 		private int _Amount;
-
 		[UltimaPacketProperty]
-		public int Amount
-		{
-			get { return _Amount; }
-		}
+		public int Amount { get { return _Amount; } }
 
 		private int _X;
-
 		[UltimaPacketProperty]
-		public int X
-		{
-			get { return _X; }
-		}
+		public int X { get { return _X; } }
 
 		private int _Y;
-
 		[UltimaPacketProperty]
-		public int Y
-		{
-			get { return _Y; }
-		}
+		public int Y { get { return _Y; } }
 
 		private int _Z;
-
 		[UltimaPacketProperty]
-		public int Z
-		{
-			get { return _Z; }
-		}
+		public int Z { get { return _Z; } }
 
 		private int _LightLevel;
-
-
 		[UltimaPacketProperty( "Light Level (Quality)" )]
-		public int LightLevel
-		{
-			get { return _LightLevel; }
-		}
+		public int LightLevel { get { return _LightLevel; } }
 
 		private int _Hue;
-
 		[UltimaPacketProperty]
-		public int Hue
-		{
-			get { return _Hue; }
-		}
+		public int Hue { get { return _Hue; } }
 
 		private bool _HasProperties;
-
 		[UltimaPacketProperty( "Has Properties" )]
-		public bool HasProperties
-		{
-			get { return _HasProperties; }
-		}
+		public bool HasProperties { get { return _HasProperties; } }
 
 		private bool _IsVisible;
-
 		[UltimaPacketProperty( "Is Visible" )]
-		public bool IsVisible
-		{
-			get { return _IsVisible; }
-		}
+		public bool IsVisible { get { return _IsVisible; } }
 
 		private WorldObjectAccess _Access;
-
 		[UltimaPacketProperty( "Access", "{0:D} - {0}" )]
-		public WorldObjectAccess Access
-		{
-			get { return _Access; }
-		}
+		public WorldObjectAccess Access { get { return _Access; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
