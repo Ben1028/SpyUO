@@ -48,6 +48,7 @@
     <Compile Include="Helpers\BigEndianReader.cs" />
     <Compile Include="Packets\FromClient\MobileQuery_34.cs" />
     <Compile Include="Packets\FromClient\MovementRequest_02.cs" />
+    <Compile Include="Packets\FromServer\MobileMoving_77.cs" />
     <Compile Include="Packets\FromServer\MobileMana_A2.cs" />
     <Compile Include="Packets\FromServer\MobileStam_A3.cs" />
     <Compile Include="Packets\FromServer\MobileHits_A1.cs" />
