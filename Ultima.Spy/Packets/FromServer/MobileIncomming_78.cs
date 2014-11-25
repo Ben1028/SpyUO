@@ -246,8 +246,8 @@ namespace Ultima.Spy.Packets
 
 			uint serial = 0;
 
-            //while ((serial = reader.ReadUInt32()) != 0)
-            //    _Items.Add(new MobileItem(serial, reader));
+            while ((serial = reader.ReadUInt32()) != 0)
+                _Items.Add(new MobileItem(serial, reader));
 		}
 	}
 

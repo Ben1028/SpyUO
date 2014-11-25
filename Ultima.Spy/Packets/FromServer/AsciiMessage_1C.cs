@@ -4,8 +4,26 @@ using System.Text;
 
 namespace Ultima.Spy.Packets
 {
-	[UltimaPacket( "Unicode Message", UltimaPacketDirection.FromServer, 0xAE )]
-	public class UnicodeMessagePacket : UltimaPacket, IUltimaEntity
+	public enum MessageType
+	{
+		Regular			= 0x0,
+		System			= 0x1,
+		Emote			= 0x2,
+		Label			= 0x6,
+		Focus			= 0x7,
+		Whisper			= 0x8,
+		Yell			= 0x9,
+		Spell			= 0xA,
+		Guild			= 0xD,
+		Alliance		= 0xE,
+		GMRequest		= 0xF,
+		GMResponse		= 0x10,
+		Special			= 0x20,
+		Encoded			= 0xC0
+	}
+
+	[UltimaPacket( "ASCII Message", UltimaPacketDirection.FromServer, 0x1C )]
+	public class AsciiMessagePacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
 
@@ -25,7 +43,7 @@ namespace Ultima.Spy.Packets
 
 		private MessageType _Type;
 
-		[UltimaPacketProperty]
+		[UltimaPacketProperty( "Type", "{0:D} - {0}" )]
 		public MessageType Type
 		{
 			get { return _Type; }
@@ -47,14 +65,6 @@ namespace Ultima.Spy.Packets
 			get { return _Font; }
 		}
 
-		private string _Language;
-
-		[UltimaPacketProperty]
-		public string Language
-		{
-			get { return _Language; }
-		}
-
 		private string _EntityName;
 
 		[UltimaPacketProperty( "Name" )]
@@ -74,15 +84,16 @@ namespace Ultima.Spy.Packets
 		protected override void Parse( BigEndianReader reader )
 		{
 			reader.ReadByte(); // ID
-			reader.ReadInt16();
+
+			int length = reader.ReadInt16() - 44;
+
 			_Serial = reader.ReadUInt32();
 			_Graphics = reader.ReadInt16();
 			_Type = (MessageType) reader.ReadByte();
 			_Hue = reader.ReadInt16();
 			_Font = reader.ReadInt16();
-			_Language = reader.ReadAsciiString( 4 );
 			_EntityName = reader.ReadAsciiString( 30 );
-			_Message = reader.ReadUnicodeString( ( Data.Length - 44 ) / 2 );
+			_Message = reader.ReadAsciiString( length );
 		}
 	}
 }
