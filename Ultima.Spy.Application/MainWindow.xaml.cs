@@ -330,20 +330,21 @@ namespace Ultima.Spy.Application
 			_Filter.Initialize();
 			FilterView.Filter = _Filter;
 
-			if ( _Filter != null )
-			{
-				using ( IsolatedStorageFile storage = IsolatedStorageFile.GetStore( IsolatedStorageScope.User | IsolatedStorageScope.Assembly | IsolatedStorageScope.Domain, null, null ) )
-				{
-					if ( storage.FileExists( _DefaultFilter ) )
-					{
-						using ( IsolatedStorageFileStream stream = storage.OpenFile( _DefaultFilter, FileMode.Open, FileAccess.Read, FileShare.Read ) )
-						{
-							if ( stream != null )
-								_Filter.Load( stream );
-						}
-					}
-				}
-			}
+            //Shit
+            if (_Filter != null && File.Exists(_DefaultFilter))
+            {
+                using (FileStream stream = File.Open(_DefaultFilter,FileMode.Open))
+                {
+                    try
+                    {
+                        _Filter.Load(stream);
+                    }
+                    catch
+                    {
+                        ShowNotification(NotificationType.Warning, "Could not load filter table, using a new one...");
+                    }
+                }
+            }
 
 			if ( Globals.Instance.LegacyClientFolder != null )
 				ShowNotification( NotificationType.Info, String.Format( "Detected classic client in folder '{0}'", Globals.Instance.LegacyClientFolder ) );
@@ -790,20 +791,19 @@ namespace Ultima.Spy.Application
 		{
 			try
 			{
+			    UltimaCommand.Stop.Execute(null, null);
+
 				if ( VlcPlayer.Inititalized )
 					VlcPlayer.Uninitialize();
 
 				// Save filter to isolated storage
-				if ( _Filter != null )
-				{
-					using ( IsolatedStorageFile storage = IsolatedStorageFile.GetStore( IsolatedStorageScope.User | IsolatedStorageScope.Assembly | IsolatedStorageScope.Domain, null, null ) )
-					{
-						using ( IsolatedStorageFileStream stream = storage.CreateFile( _DefaultFilter ) )
-						{
-							_Filter.Save( stream );
-						}
-					}
-				}
+                if (_Filter != null)
+                {
+                        using (FileStream stream = File.Create(_DefaultFilter))
+                        {
+                            _Filter.Save(stream);
+                        }
+                }
 			}
 			catch
 			{

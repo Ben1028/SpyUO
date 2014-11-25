@@ -12,8 +12,8 @@ namespace Ultima.Spy.Packets
         Normal = 2,
     }
 
-    [UltimaPacket("Boat Wheel Movement", UltimaPacketDirection.FromServer, 0xBF, 0x33)]
-    public class BoatWheelMovement : UltimaPacket, IUltimaEntity
+    [UltimaPacket("Boat Wheel Movement", UltimaPacketDirection.FromBoth, 0xBF, 0x33)]
+    public class BoatWheelMovementPacket : UltimaPacket, IUltimaEntity
     {
         private uint _Serial;
         [UltimaPacketProperty("Serial", "0x{0:X}")]
