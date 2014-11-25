@@ -16,116 +16,60 @@ namespace Ultima.Spy.Packets
 	public class GraphicalEffectPacket : UltimaPacket, IUltimaEntity
 	{
 		private GraphicalEffectType _Type;
-		
 		[UltimaPacketProperty( "Type", "{0:D} - {0}" )]
-		public GraphicalEffectType Type
-		{
-			get { return _Type; }
-		}
+		public GraphicalEffectType Type	{ get { return _Type; }	}
 
 		private uint _Source;
-
 		[UltimaPacketProperty( "Source", "0x{0:X}" )]
-		public uint Source
-		{
-			get { return _Source; }
-		}
+		public uint Source { get { return _Source; } }
 
 		private uint _Target;
-
 		[UltimaPacketProperty( "Target", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Target; }
-		}
+		public uint Serial { get { return _Target; } }
 
 		private int _ObjectID;
-
 		[UltimaPacketProperty( "Object ID", "0x{0:X}" )]
-		public int ObjectID
-		{
-			get { return _ObjectID; }
-		}
+		public int ObjectID { get { return _ObjectID; } }
 
 		private int _SourceX;
-
 		[UltimaPacketProperty( "Source X" )]
-		public int SourceX
-		{
-			get { return _SourceX; }
-		}
+		public int SourceX { get { return _SourceX; } }
 
 		private int _SourceY;
-
 		[UltimaPacketProperty( "Source X" )]
-		public int SourceY
-		{
-			get { return _SourceY; }
-		}
+		public int SourceY { get { return _SourceY; } }
 
 		private int _SourceZ;
-
 		[UltimaPacketProperty( "Source Z" )]
-		public int SourceZ
-		{
-			get { return _SourceZ; }
-		}
+		public int SourceZ { get { return _SourceZ; } }
 
 		private int _TargetX;
-
 		[UltimaPacketProperty( "Target X" )]
-		public int TargetX
-		{
-			get { return _TargetX; }
-		}
+		public int TargetX { get { return _TargetX; } }
 
 		private int _TargetY;
-
 		[UltimaPacketProperty( "Target X" )]
-		public int TargetY
-		{
-			get { return _TargetY; }
-		}
+		public int TargetY { get { return _TargetY; } }
 
 		private int _TargetZ;
-
 		[UltimaPacketProperty( "Target Z" )]
-		public int TargetZ
-		{
-			get { return _TargetZ; }
-		}
+		public int TargetZ { get { return _TargetZ; } }
 
 		private int _Speed;
-
 		[UltimaPacketProperty]
-		public int Speed
-		{
-			get { return _Speed; }
-		}
+		public int Speed { get { return _Speed; } }
 
 		private int _Duration;
-
 		[UltimaPacketProperty( "Duration (s)" )]
-		public int Duration
-		{
-			get { return _Duration; }
-		}
+		public int Duration { get { return _Duration; } }
 
 		private bool _FixedDirection;
-
 		[UltimaPacketProperty( "Fixed Direction" )]
-		public bool FixedDirection
-		{
-			get { return _FixedDirection; }
-		}
+		public bool FixedDirection { get { return _FixedDirection; } }
 
 		private bool _Explode;
-
 		[UltimaPacketProperty]
-		public bool Explode
-		{
-			get { return _Explode; }
-		}
+		public bool Explode { get { return _Explode; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{

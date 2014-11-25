@@ -6,52 +6,28 @@ namespace Ultima.Spy.Packets
 	public class PlaySoundPacket : UltimaPacket
 	{
 		private int _Flags;
-
 		[UltimaPacketProperty( "Flags", "0x{0:X}" )]
-		public int Flags
-		{
-			get { return _Flags; }
-		}
+		public int Flags { get { return _Flags; } }
 
 		private int _SoundID;
-
 		[UltimaPacketProperty( "Sound ID", UltimaPacketPropertyType.Sound )]
-		public int SoundID
-		{
-			get { return _SoundID; }
-		}
+		public int SoundID { get { return _SoundID; } }
 
 		private int _Volume;
-
 		[UltimaPacketProperty]
-		public int Volume
-		{
-			get { return _Volume; }
-		}
+		public int Volume { get { return _Volume; } }
 
 		private int _X;
-
 		[UltimaPacketProperty]
-		public int X
-		{
-			get { return _X; }
-		}
+		public int X { get { return _X; } }
 
 		private int _Y;
-
 		[UltimaPacketProperty]
-		public int Y
-		{
-			get { return _Y; }
-		}
+		public int Y { get { return _Y; } }
 
 		private int _Z;
-
 		[UltimaPacketProperty]
-		public int Z
-		{
-			get { return _Z; }
-		}
+		public int Z { get { return _Z; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{

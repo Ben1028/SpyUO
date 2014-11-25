@@ -25,61 +25,33 @@ namespace Ultima.Spy.Packets
 	[UltimaPacket( "ASCII Message", UltimaPacketDirection.FromServer, 0x1C )]
 	public class AsciiMessagePacket : UltimaPacket, IUltimaEntity
 	{
-		private uint _Serial;
-
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+        private uint _Serial;
+        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        public uint Serial { get { return _Serial; } }
 
 		private int _Graphics;
-
 		[UltimaPacketProperty( "Graphics", "0x{0:X}" )]
-		public int Graphics
-		{
-			get { return _Graphics; }
-		}
+		public int Graphics { get { return _Graphics; } }
 
 		private MessageType _Type;
-
 		[UltimaPacketProperty( "Type", "{0:D} - {0}" )]
-		public MessageType Type
-		{
-			get { return _Type; }
-		}
+		public MessageType Type { get { return _Type; } }
 
 		private int _Hue;
-
 		[UltimaPacketProperty]
-		public int Hue
-		{
-			get { return _Hue; }
-		}
+		public int Hue { get { return _Hue; } }
 
 		private int _Font;
-
 		[UltimaPacketProperty]
-		public int Font
-		{
-			get { return _Font; }
-		}
+		public int Font { get { return _Font; } }
 
 		private string _EntityName;
-
 		[UltimaPacketProperty( "Name" )]
-		public string EntityName
-		{
-			get { return _EntityName; }
-		}
+		public string EntityName { get { return _EntityName; } }
 
 		private string _Message;
-
 		[UltimaPacketProperty]
-		public string Message
-		{
-			get { return _Message; }
-		}
+		public string Message { get { return _Message; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{

@@ -7,28 +7,16 @@ namespace Ultima.Spy.Packets
     public class MobileStaminaPacket : UltimaPacket, IUltimaEntity
     {
         private uint _Serial;
-
         [UltimaPacketProperty("Serial", "0x{0:X}")]
-        public uint Serial
-        {
-            get { return _Serial; }
-        }
+        public uint Serial { get { return _Serial; } }
 
         private int _Stamina;
-
         [UltimaPacketProperty]
-        public int Stamina
-        {
-            get { return _Stamina; }
-        }
+        public int Stamina { get { return _Stamina; } }
 
         private int _MaxStamina;
-
         [UltimaPacketProperty]
-        public int MaxStamina
-        {
-            get { return _MaxStamina; }
-        }
+        public int MaxStamina { get { return _MaxStamina; } }
 
         protected override void Parse(BigEndianReader reader)
         {

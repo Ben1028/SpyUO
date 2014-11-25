@@ -9,20 +9,12 @@ namespace Ultima.Spy.Packets
 	public class ContainerContentPacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
-
 		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+		public uint Serial { get { return _Serial; } }
 
 		private List<ContainerItem> _Items;
-
 		[UltimaPacketProperty]
-		public List<ContainerItem> Items
-		{
-			get { return _Items; }
-		}
+		public List<ContainerItem> Items { get { return _Items; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
@@ -43,83 +35,43 @@ namespace Ultima.Spy.Packets
 	public class ContainerItem
 	{
 		private UltimaPacket _Parent;
+		public UltimaPacket Parent { get { return _Parent; } }
 
-		public UltimaPacket Parent
-		{
-			get { return _Parent; }
-		}
-
-		private uint _Serial;
-
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
-		public uint Serial
-		{
-			get { return _Serial; }
-		}
+        private uint _Serial;
+        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        public uint Serial { get { return _Serial; } }
 
 		private int _ItemID;
-
 		[UltimaPacketProperty( "Item ID", UltimaPacketPropertyType.Texture )]
-		public int ItemID
-		{
-			get { return _ItemID; }
-		}
+		public int ItemID { get { return _ItemID; } }
 
 		private byte _ItemIDOffset;
-
 		[UltimaPacketProperty( "Item ID OFfset" )]
-		public byte ItemIDOffset
-		{
-			get { return _ItemIDOffset; }
-		}
+		public byte ItemIDOffset { get { return _ItemIDOffset; } }
 
 		private int _Amount;
-
 		[UltimaPacketProperty]
-		public int Amount
-		{
-			get { return _Amount; }
-		}
+		public int Amount { get { return _Amount; } }
 
 		private int _X;
-
 		[UltimaPacketProperty]
-		public int X
-		{
-			get { return _X; }
-		}
+		public int X { get { return _X; } }
 
 		private int _Y;
-
 		[UltimaPacketProperty]
-		public int Y
-		{
-			get { return _Y; }
-		}
+		public int Y { get { return _Y; } }
 
 		private byte _GridLocation;
-
 		[UltimaPacketProperty( "Grid Location" )]
-		public byte GridLocation
-		{
-			get { return _GridLocation; }
-		}
+		public byte GridLocation { get { return _GridLocation; } }
 
 		private uint _ParentSerial;
-
 		[UltimaPacketProperty( "Parent Serial", "0x{0:X}" )]
-		public uint ParentSerial
-		{
-			get { return _ParentSerial; }
-		}
+		public uint ParentSerial { get { return _ParentSerial; } }
 
 		private int _Hue;
-
 		[UltimaPacketProperty]
-		public int Hue
-		{
-			get { return _Hue; }
-		}
+		public int Hue { get { return _Hue; } }
 
 		public ContainerItem( UltimaPacket parent, BigEndianReader reader )
 		{
