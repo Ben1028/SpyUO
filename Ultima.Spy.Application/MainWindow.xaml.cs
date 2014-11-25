@@ -330,7 +330,6 @@ namespace Ultima.Spy.Application
 			_Filter.Initialize();
 			FilterView.Filter = _Filter;
 
-            //Shit
             if (_Filter != null && File.Exists(_DefaultFilter))
             {
                 using (FileStream stream = File.Open(_DefaultFilter,FileMode.Open))
