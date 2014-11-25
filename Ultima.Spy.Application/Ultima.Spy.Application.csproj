@@ -385,6 +385,7 @@
     <Resource Include="Images\CSharpPage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\AutoScroll.png" />
     <Resource Include="Images\Information.png" />
     <Resource Include="Images\Key.png" />
     <Resource Include="Images\Missing.png" />

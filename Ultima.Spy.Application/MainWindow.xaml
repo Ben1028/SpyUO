@@ -365,7 +365,10 @@
 							  Checked="NotificationButton_Checked" Unchecked="NotificationButton_Unchecked" >
 					<Image Source="Images/Notifications.png" Style="{StaticResource ToolbarButtonImage}" />
 				</ToggleButton>
-				<Ellipse Grid.Column="1" x:Name="Loading" Style="{StaticResource MainLoading}">
+                <ToggleButton Grid.Column="1" Style="{StaticResource ToolbarToggleButton}" x:Name="ScrollButton" ToolTip="Enable or disable auto scroll" Checked="ScrollButton_Checked" Unchecked="ScrollButton_Unchecked" >
+                    <Image Source="Images/AutoScroll.png" Style="{StaticResource ToolbarButtonImage}" />
+                </ToggleButton>
+                <Ellipse Grid.Column="1" x:Name="Loading" Style="{StaticResource MainLoading}">
 					<Ellipse.RenderTransform>
 						<RotateTransform />
 					</Ellipse.RenderTransform>
