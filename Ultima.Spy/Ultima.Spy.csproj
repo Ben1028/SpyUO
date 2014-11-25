@@ -68,7 +68,7 @@
     <Compile Include="Packets\FromServer\ContainerContent_3C.cs" />
     <Compile Include="Packets\FromServer\AsciiMessage_1C.cs" />
     <Compile Include="Packets\FromServer\Buffs_DF.cs" />
-    <Compile Include="Packets\FromClient\GraphicalEffect_70.cs" />
+    <Compile Include="Packets\FromServer\GraphicalEffect_70.cs" />
     <Compile Include="Packets\FromClient\GumpResponse_B1.cs" />
     <Compile Include="Packets\FromServer\MobileAnimation_E2.cs" />
     <Compile Include="Packets\FromBoth\MobileName_98.cs" />

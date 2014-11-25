@@ -12,7 +12,7 @@ namespace Ultima.Spy.Packets
 		SpecialEffect			= 0x4,
 	}
 
-	[UltimaPacket( "Graphical Effect", UltimaPacketDirection.FromClient, 0x70 )]
+	[UltimaPacket( "Graphical Effect", UltimaPacketDirection.FromServer, 0x70 )]
 	public class GraphicalEffectPacket : UltimaPacket, IUltimaEntity
 	{
 		private GraphicalEffectType _Type;
