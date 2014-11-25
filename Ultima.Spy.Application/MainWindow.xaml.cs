@@ -7,6 +7,7 @@ using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Microsoft.Win32;
 using Ultima.Package;
@@ -67,11 +68,25 @@ namespace Ultima.Spy.Application
 			_Notifications = new ObservableCollection<Notification>();
 			_SpyHelper = new SpyHelper();
 			_SpyHelper.PacketsView.Filter += new Predicate<object>( Filter_Displayed );
+            _SpyHelper.PacketsView.CollectionChanged += PacketsView_CollectionChanged;
 			_Filter = new UltimaPacketFilter();
 			_Filter.Changed += new EventHandler( Filter_Changed );
 
 			InitializeComponent();
 		}
+
+        void PacketsView_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (PacketsView.Items.Count > 0 && ScrollButton.IsChecked.Value)
+            {
+                var border = VisualTreeHelper.GetChild(PacketsView, 0) as Decorator;
+                if (border != null)
+                {
+                    var scroll = border.Child as ScrollViewer;
+                    if (scroll != null) scroll.ScrollToEnd();
+                }
+            }
+        }
 		#endregion
 
 		#region Methods
@@ -716,7 +731,7 @@ namespace Ultima.Spy.Application
 
 		private void SubmitBug_Click( object sender, RoutedEventArgs e )
 		{
-			Process.Start( "http://code.google.com/p/mondains-legacy/issues/entry" );
+			//Process.Start( "http://code.google.com/p/mondains-legacy/issues/entry" );
 		}
 
 		private void About_Click( object sender, RoutedEventArgs e )
@@ -796,6 +811,16 @@ namespace Ultima.Spy.Application
 			}
 		}
 		#endregion
+
+        private void ScrollButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ScrollButton.IsChecked = true;
+        }
 		#endregion
+
+        private void ScrollButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ScrollButton.IsChecked = false;
+        }
 	}
 }

@@ -9,7 +9,7 @@ namespace Ultima.Spy.Packets
 	[UltimaPacket( "Generic Gump", UltimaPacketDirection.FromServer, 0xB0 )]
 	public class GenericGumpPacket : UltimaPacket, IUltimaEntity
 	{
-        private uint _Serial;
+        protected uint _Serial;
         [UltimaPacketProperty("Serial", "0x{0:X}")]
         public uint Serial { get { return _Serial; } }
 
