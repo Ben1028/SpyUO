@@ -190,23 +190,19 @@ namespace Ultima.Spy
 			UltimaPacketTable table = this;
 			int offset = 0;
 
-		    if (data[0] == 0xbf && fromClient && data[4] == 0x33)
-		    {
-		    }
-
 		    while ( table != null )
 			{
 				id = data[ offset ];
 				object item = table[ id ];
 
+                if (ids == null)
+                    ids = id.ToString("X2");
+                else
+                    ids = ids + "." + id.ToString("X2");
+
 				if ( item != null )
 				{
 					UltimaPacketTableEntry entry = item as UltimaPacketTableEntry;
-
-                    if (ids == null)
-                        ids = id.ToString("X2");
-                    else
-                        ids = ids + "." + id.ToString("X2");
 
 					if ( entry != null && (
 						( fromClient && entry.FromClient != null ) ||
@@ -231,11 +227,11 @@ namespace Ultima.Spy
 				}
 				else
 				{
-					// Unknown packet
-					if ( _Ids == null )
-						ids = id.ToString( "X2" );
-					else
-						ids = _Ids + "." + id.ToString( "X2" );
+                    //// Unknown packet, subcommands may appear even if the packet doesnt have any
+                    //if ( ids == null )
+                    //    ids = id.ToString( "X2" );
+                    //else
+                    //    ids = ids + "." + id.ToString( "X2" );
 
 					return null;
 				}
