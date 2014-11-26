@@ -31,7 +31,7 @@ namespace Ultima.Spy.Packets
         public Direction MovingDirection { get { return _MovingDirection; } }
 
         private BoatCommand _BoatCommand;
-        [UltimaPacketProperty("Moving Direction", "{0:D} - {0}")]
+        [UltimaPacketProperty("Command", "{0:D} - {0}")]
         public BoatCommand BoatCommand { get { return _BoatCommand; } }
 
         protected override void Parse(BigEndianReader reader)
