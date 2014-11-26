@@ -230,20 +230,30 @@ namespace Ultima.Spy.Application
 			IUltimaPacketFilterEntry item = null;
 			int i = 0;
 
+
+            //the filter is now correctly filtering the subcommands but this is the best way to find cmd.subcmd[.subsubcmd]
+		    string[] sids = packet.Ids.Split('.');
+		    byte[] ids = new byte[sids.Length];
+		    foreach (string s in sids)
+		    {
+                ids[i++] = Convert.ToByte(s.Substring(0, 2), 16);
+		    }
+
+		    i = 0;
 			do
 			{
-				item = table[ packet.Data[ i++ ] ];
+				item = table[ ids[ i++ ] ];
 				childTable = item as UltimaPacketFilterTable;
 
 				if ( childTable != null )
 				{
-					if ( !childTable.IsChecked )
-						return false;
+					if ( childTable.IsChecked )
+						return true;
 
 					table = childTable;
 				}
 			}
-			while ( childTable != null );
+			while ( childTable != null && i < ids.Length );
 
 			UltimaPacketFilterEntry entry = item as UltimaPacketFilterEntry;
 

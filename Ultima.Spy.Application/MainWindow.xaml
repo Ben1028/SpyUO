@@ -278,8 +278,8 @@
 				<RowDefinition x:Name="NotificationRow" Height="Auto" />
 			</Grid.RowDefinitions>
 
-			<DataGrid x:Name="PacketsView" Grid.Row="0" Style="{StaticResource MainGrid}" ItemsSource="{Binding SpyHelper.Packets}" MouseDoubleClick="PacketsView_MouseDoubleClick">
-				<DataGrid.Columns>
+			<DataGrid x:Name="PacketsView" Grid.Row="0" Style="{StaticResource MainGrid}" ItemsSource="{Binding SpyHelper.Packets}" MouseDoubleClick="PacketsView_MouseDoubleClick" AreRowDetailsFrozen="True" GridLinesVisibility="Vertical" HorizontalGridLinesBrush="#FF595959" VerticalGridLinesBrush="#FF595959">
+                <DataGrid.Columns>
 					<DataGridTextColumn Header="Time" Binding="{Binding Path=DateTime, StringFormat=\{0:H:mm:ss fff\}}" />
 					<DataGridTextColumn Header="Direction" Binding="{Binding Path=FromClient, Converter={StaticResource UltimaPacketDirectionConverter}}" />
 					<DataGridTextColumn Header="ID" Binding="{Binding Path=Ids}" />
@@ -351,7 +351,8 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="24" />
 					<ColumnDefinition Width="24" />
-					<ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="Auto" />
 					<ColumnDefinition Width="Auto" />
 					<ColumnDefinition Width="Auto" />
 					<ColumnDefinition Width="*" />
@@ -368,13 +369,12 @@
                 <ToggleButton Grid.Column="1" Style="{StaticResource ToolbarToggleButton}" x:Name="ScrollButton" ToolTip="Enable or disable auto scroll" Checked="ScrollButton_Checked" Unchecked="ScrollButton_Unchecked" >
                     <Image Source="Images/AutoScroll.png" Style="{StaticResource ToolbarButtonImage}" />
                 </ToggleButton>
-                <Ellipse Grid.Column="1" x:Name="Loading" Style="{StaticResource MainLoading}">
-					<Ellipse.RenderTransform>
-						<RotateTransform />
-					</Ellipse.RenderTransform>
-				</Ellipse>
-				<Border Grid.Column="2" Style="{StaticResource MainFooterSeparator}" />
-				<TextBlock Grid.Column="3" Text="Spy:" Style="{StaticResource MainFooterFilterText}" />
+                <Ellipse Grid.Column="2" x:Name="Loading" Style="{StaticResource MainLoading}">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <TextBlock Grid.Column="3" Text="Spy:" Style="{StaticResource MainFooterFilterText}" />
 				<TextBlock Grid.Column="4">
 					<TextBlock.Style>
 						<Style TargetType="TextBlock" BasedOn="{StaticResource MainFooterFilterText}">
@@ -388,8 +388,8 @@
 					</TextBlock.Style>
 				</TextBlock>
 				<TextBlock Grid.Column="5" Text="{Binding SpyHelper.Path}" Style="{StaticResource MainFooterFilterText}" />
-				<TextBlock Grid.Column="6" Text="Packet count:" Style="{StaticResource MainFooterFilterText}" />
-				<TextBlock Grid.Column="7" Text="{Binding SpyHelper.Count}" Style="{StaticResource MainFooterFilterText}" />
+				<TextBlock Grid.Column="7" Text="Packet count:" Style="{StaticResource MainFooterFilterText}" />
+				<TextBlock Grid.Column="8" Text="{Binding SpyHelper.Count}" Style="{StaticResource MainFooterFilterText}" />
 			</Grid>
 		</Border>
 	</Grid>
