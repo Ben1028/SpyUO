@@ -4,7 +4,7 @@
 		xmlns:this="clr-namespace:Ultima.Spy.Application"
 		Icon="/SpyUO;component/SpyUO.ico"
 		Title="Select Process" Height="400" Width="350" UseLayoutRounding="True" SnapsToDevicePixels="True"
-		WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Loaded="Window_Loaded">
+		WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded" Topmost="True">
     <Window.Resources>
         <Style x:Key="ProcessHeader" TargetType="Border">
             <Setter Property="Background" Value="{StaticResource PanelBackground}" />

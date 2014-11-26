@@ -190,7 +190,11 @@ namespace Ultima.Spy
 			UltimaPacketTable table = this;
 			int offset = 0;
 
-			while ( table != null )
+		    if (data[0] == 0xbf && fromClient && data[4] == 0x33)
+		    {
+		    }
+
+		    while ( table != null )
 			{
 				id = data[ offset ];
 				object item = table[ id ];
@@ -217,7 +221,7 @@ namespace Ultima.Spy
 					else if ( entry == null )
 					{
 						// Need to look in mordor
-						offset += ( table.Word ? 2 : 1 );
+						offset += ( ((UltimaPacketTable) item).Word ? 2 : 1 );
 						table = (UltimaPacketTable) item;
 						offset += table.Offset;
 					}

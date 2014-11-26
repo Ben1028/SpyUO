@@ -15,6 +15,9 @@ namespace Ultima.Spy.Packets
     [UltimaPacket("Boat Wheel Movement", UltimaPacketDirection.FromBoth, 0xBF, 0x33)]
     public class BoatWheelMovementPacket : UltimaPacket, IUltimaEntity
     {
+        [UltimaPacketProperty("BF.33")]
+        public string Subcommand { get { return "BF.33 Subcommand"; } }
+
         private uint _Serial;
         [UltimaPacketProperty("Serial", "0x{0:X}")]
         public uint Serial { get { return _Serial; } }
@@ -35,7 +38,7 @@ namespace Ultima.Spy.Packets
         {
             reader.ReadByte(); // ID
             reader.ReadInt16(); // Size
-            reader.ReadByte(); // Command
+            reader.ReadInt16(); // Command
 
             _Serial = reader.ReadUInt32();
             _FacingDirection = (Direction)reader.ReadByte();
