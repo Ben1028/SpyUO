@@ -203,15 +203,16 @@ namespace Ultima.Spy
 				{
 					UltimaPacketTableEntry entry = item as UltimaPacketTableEntry;
 
+                    if (ids == null)
+                        ids = id.ToString("X2");
+                    else
+                        ids = ids + "." + id.ToString("X2");
+
 					if ( entry != null && (
 						( fromClient && entry.FromClient != null ) ||
 						( !fromClient && entry.FromServer != null ) ) )
 					{
 						// Found packet definition
-						if ( _Ids == null )
-							ids = id.ToString( "X2" );
-						else
-							ids = _Ids + "." + id.ToString( "X2" );
 
 						if ( fromClient )
 							return entry.FromClient;
