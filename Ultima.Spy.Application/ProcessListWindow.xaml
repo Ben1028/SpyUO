@@ -81,7 +81,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Style="{StaticResource ProcessHeader}">
-            <TextBlock x:Name="Header" Text="Process List" Style="{StaticResource ProcessTitle}" />
+            <TextBlock x:Name="Header" Text="Valid UO Clients" Style="{StaticResource ProcessTitle}" />
         </Border>
 
         <Border Grid.Row="1" Style="{StaticResource ProcessContent}">
