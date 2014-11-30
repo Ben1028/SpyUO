@@ -9,7 +9,7 @@ namespace Ultima.Spy.Packets
 	public class QueryPropertiesRequestPacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
+		[UltimaPacketProperty( "Serial", "0{0:X}" )]
 		public uint Serial { get { return _Serial; } }
 
 		protected override void Parse( BigEndianReader reader )
@@ -50,7 +50,7 @@ namespace Ultima.Spy.Packets
 		public UltimaPacket  Parent { get { return _Parent; } }
 
 		private uint _Serial;
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
+		[UltimaPacketProperty( "Serial", "0{0:X}" )]
 		public uint Serial { get { return _Serial; } }
 
 		public QueryPropertiesItem( UltimaPacket parent, uint serial )

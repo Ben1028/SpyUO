@@ -7,7 +7,7 @@ namespace Ultima.Spy.Packets
 	public class MapDetailsPacket : UltimaPacket, IUltimaEntity
 	{
 		private uint _Serial;
-		[UltimaPacketProperty( "Serial", "0x{0:X}" )]
+		[UltimaPacketProperty( "Serial", "0{0:X}" )]
 		public uint Serial { get { return _Serial; } }
 
 		private int _CornerImage;

@@ -10,11 +10,11 @@ namespace Ultima.Spy.Packets
 	public class GenericGumpPacket : UltimaPacket, IUltimaEntity
 	{
         protected uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		protected int _GumpID;
-		[UltimaPacketProperty( "Gump ID", "0x{0:X}" )]
+		[UltimaPacketProperty( "Gump ID", "0{0:X}" )]
 		public int GumpID { get { return _GumpID; } }
 
 		protected int _X;

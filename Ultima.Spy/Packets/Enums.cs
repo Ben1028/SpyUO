@@ -88,4 +88,150 @@ namespace Ultima.Spy.Packets
         Bank = 0x1D,
         ShopMax = 0x1E,
     }
+
+    public enum BuffType
+    {
+        Strength = 0x1,
+        Dexterity = 0x2,
+        Intelligence = 0x3,
+        HitPoints = 0x7,
+        Stamina = 0x8,
+        Mana = 0x9,
+        HitPointRegeneration = 0xA,
+        StaminaRegeneration = 0xB,
+        ManaRegeneration = 0xC,
+        NightSignt = 0xD,
+        Luck = 0xE,
+        ReflectPhysical = 0x10,
+        EnhancePotions = 0x11,
+        AttackChance = 0x12,
+        DefendChance = 0x13,
+        SpellDamage = 0x14,
+        CastRecovery = 0x15,
+        CastSpeed = 0x16,
+        ManaCost = 0x17,
+        ReagentCost = 0x18,
+        WeaponSpeed = 0x19,
+        WeaponDamage = 0x1A,
+        PhysicalResistance = 0x1B,
+        FireResistance = 0x1C,
+        ColdResistance = 0x1D,
+        PoisonResistance = 0x1E,
+        EnergyResistance = 0x1F,
+        MaxPhysicalResistance = 0x20,
+        MaxFireResistance = 0x21,
+        MaxColdResistance = 0x22,
+        MaxPoisonResistance = 0x23,
+        MaxEnergyResistance = 0x24,
+        AmmoCost = 0x26,
+        KarmaLoss = 0x28,
+        BuffIcons = 0x3EA,
+    }
+
+    public enum BuffSourceType
+    {
+        Character = 0,
+        TwoHandedWeapon = 50,
+        OneHandedWeaponOrSpellbook = 53,
+        ShieldOrRangedWeapon = 54,
+        Shoes = 55,
+        PantsOrLegs = 56,
+        HelmOrHat = 58,
+        Gloves = 59,
+        Ring = 60,
+        Talisman = 61,
+        NecklaceOrGorget = 62,
+        Waist = 64,
+        InnnerTorso = 65,
+        Bracelet = 66,
+        MiddleTorso = 69,
+        Earring = 70,
+        Arms = 71,
+        CloakOrQuiver = 72,
+        OuterTorso = 74,
+        Spells = 1000,
+    }
+
+    public enum WeatherTypes
+    {
+        Rain = 0x00,
+        FierceStorm = 0x01,
+        Snow = 0x02,
+        Storm = 0x03,
+        SetTemperature = 0xFE,
+        StopAllWeather = 0xFF
+    }
+
+    public enum LightLevels
+    {
+        Bright = 0x00,
+        Night = 0x09,
+        Black = 0x1F
+    }
+
+    public enum GraphicalEffectType
+    {
+        SourceToDestination = 0x0,
+        LightningStrike = 0x1,
+        StayWithDestination = 0x2,
+        StayWithSource = 0x3,
+        SpecialEffect = 0x4,
+    }
+
+    public enum MapNames
+    {
+        Felluca = 0x0,
+        Trammel = 0x1,
+        Ilshenar = 0x2,
+        Malas = 0x3,
+        Tokuno = 0x4,
+        TerMur = 0x5
+    }
+
+    public enum AnimationType
+    {
+        Attack = 0,
+        Parry = 1,
+        Block = 2,
+        Die = 3,
+        Impact = 4,
+        Fidget = 5,
+        Eat = 6,
+        Emote = 7,
+        Alert = 8,
+        TakeOff = 9,
+        Land = 10,
+        Spell = 11,
+        StartCombat = 12,
+        EndCombat = 13,
+        Pillage = 14,
+        Spawn = 15
+    }
+
+    public enum MobileRace
+    {
+        Human = 1,
+        Elf = 2,
+        Gargoyle = 3,
+    }
+
+    public enum WorldObjectType
+    {
+        Tile = 0,
+        Body = 1,
+        Multi = 2
+    }
+
+    public enum WorldObjectAccess
+    {
+        Player = 0,
+        World = 1,
+    }
+
+    public enum BoatCommand
+    {
+        Stop = 0,
+        OneTile = 1,
+        Normal = 2,
+    }
 }

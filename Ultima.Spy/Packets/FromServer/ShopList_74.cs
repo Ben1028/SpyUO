@@ -9,7 +9,7 @@ namespace Ultima.Spy.Packets
 	public class ShopListPacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Vendor Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Vendor Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private List<ShopListItem> _Items;

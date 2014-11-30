@@ -8,11 +8,11 @@ namespace Ultima.Spy.Packets
 	public class AsciiMessagePacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private int _Graphics;
-		[UltimaPacketProperty( "Graphics", "0x{0:X}" )]
+		[UltimaPacketProperty( "Graphics", "0{0:X}" )]
 		public int Graphics { get { return _Graphics; } }
 
 		private MessageType _Type;

@@ -3,14 +3,6 @@ using System.IO;
 
 namespace Ultima.Spy.Packets
 {
-
-    public enum LightLevels
-	{
-		Bright			= 0x00,
-		Night			= 0x09,
-		Black			= 0x1F
-	}
-
 	[UltimaPacket( "Global Light", UltimaPacketDirection.FromServer, 0x4F )]
 	public class GlobalLightPacket : UltimaPacket
 	{
