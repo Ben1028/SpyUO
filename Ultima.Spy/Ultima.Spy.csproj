@@ -46,9 +46,11 @@
     <Compile Include="ClientSpy.cs" />
     <Compile Include="EnhancedClientSpy.cs" />
     <Compile Include="Helpers\BigEndianReader.cs" />
+    <Compile Include="Packets\Enums.cs" />
     <Compile Include="Packets\FromClient\BoatWheelMovement_BF33.cs" />
     <Compile Include="Packets\FromClient\MobileQuery_34.cs" />
     <Compile Include="Packets\FromClient\MovementRequest_02.cs" />
+    <Compile Include="Packets\FromServer\EquipUpdate_2E.cs" />
     <Compile Include="Packets\FromServer\MobileMoving_77.cs" />
     <Compile Include="Packets\FromServer\MobileMana_A2.cs" />
     <Compile Include="Packets\FromServer\MobileStam_A3.cs" />

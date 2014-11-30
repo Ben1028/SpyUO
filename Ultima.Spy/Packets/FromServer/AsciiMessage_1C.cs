@@ -4,24 +4,6 @@ using System.Text;
 
 namespace Ultima.Spy.Packets
 {
-	public enum MessageType
-	{
-		Regular			= 0x0,
-		System			= 0x1,
-		Emote			= 0x2,
-		Label			= 0x6,
-		Focus			= 0x7,
-		Whisper			= 0x8,
-		Yell			= 0x9,
-		Spell			= 0xA,
-		Guild			= 0xD,
-		Alliance		= 0xE,
-		GMRequest		= 0xF,
-		GMResponse		= 0x10,
-		Special			= 0x20,
-		Encoded			= 0xC0
-	}
-
 	[UltimaPacket( "ASCII Message", UltimaPacketDirection.FromServer, 0x1C )]
 	public class AsciiMessagePacket : UltimaPacket, IUltimaEntity
 	{
