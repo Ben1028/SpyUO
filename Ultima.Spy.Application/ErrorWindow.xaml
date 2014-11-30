@@ -3,7 +3,7 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		Title="" MinHeight="150" MinWidth="200" MaxWidth="600"
 		Icon="/SpyUO;component/SpyUO.ico" SizeToContent="WidthAndHeight"
-		WindowStartupLocation="CenterOwner" Background="{StaticResource WindowBackground}" Topmost="True">
+		WindowStartupLocation="CenterScreen" Background="{StaticResource WindowBackground}" Topmost="True" WindowStyle="None">
 	<Window.Resources>
 		<Style x:Key="ErrorTitle" TargetType="TextBox" BasedOn="{StaticResource ReadOnlyTextBox}">
 			<Setter Property="FontSize" Value="14" />
