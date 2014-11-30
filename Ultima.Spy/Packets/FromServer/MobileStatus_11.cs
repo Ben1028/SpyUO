@@ -4,18 +4,11 @@ using System.Text;
 
 namespace Ultima.Spy.Packets
 {
-	public enum MobileRace
-	{
-		Human		= 1,
-		Elf			= 2,
-		Gargoyle	= 3,
-	}
-
 	[UltimaPacket( "Mobile Status", UltimaPacketDirection.FromServer, 0x11 )]
 	public class MobileStatusPacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private string _MobileName;

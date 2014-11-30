@@ -5,12 +5,6 @@ using System;
 
 namespace Ultima.Spy.Packets
 {
-    public enum BoatCommand
-    {
-        Stop = 0,
-        OneTile = 1,
-        Normal = 2,
-    }
 
     [UltimaPacket("Boat Wheel Movement", UltimaPacketDirection.FromBoth, 0xBF, 0x33)]
     public class BoatWheelMovementPacket : UltimaPacket, IUltimaEntity
@@ -19,7 +13,7 @@ namespace Ultima.Spy.Packets
         public string Subcommand { get { return "BF.33 Subcommand"; } }
 
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
         private Direction _FacingDirection;

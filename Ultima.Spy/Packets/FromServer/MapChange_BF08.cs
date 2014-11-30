@@ -8,9 +8,9 @@ namespace Ultima.Spy.Packets
 	[UltimaPacket( "Map Change", UltimaPacketDirection.FromServer, 0xBF, 0x08 )]
 	public class MapChangePacket : UltimaPacket
 	{
-		private uint _MapID;
+        private MapNames _MapID;
 		[UltimaPacketProperty]
-        public uint MapID { get { return _MapID; } }
+        public MapNames MapID { get { return _MapID; } }
 
 		protected override void Parse( BigEndianReader reader )
 		{
@@ -18,7 +18,7 @@ namespace Ultima.Spy.Packets
 			reader.ReadInt16(); // Size
             reader.ReadInt16(); // Command
 
-            _MapID = reader.ReadByte();
+            _MapID = (MapNames) reader.ReadByte();
 		}
 	}
 }

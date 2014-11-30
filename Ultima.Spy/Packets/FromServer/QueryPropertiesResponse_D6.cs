@@ -9,11 +9,11 @@ namespace Ultima.Spy.Packets
 	public class QueryPropertiesResponsePacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private uint _Hash;
-		[UltimaPacketProperty( "Hash", "0x{0:X}" )]
+		[UltimaPacketProperty( "Hash", "0{0:X}" )]
 		public uint Hash { get { return _Hash; } }
 
 		private List<QueryPropertiesProperty> _Properties;

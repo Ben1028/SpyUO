@@ -3,24 +3,11 @@ using System.IO;
 
 namespace Ultima.Spy.Packets
 {
-	public enum WorldObjectType
-	{
-		Tile		= 0,
-		Body		= 1,
-		Multi		= 2
-	}
-
-	public enum WorldObjectAccess
-	{
-		Player		= 0,
-		World		= 1,
-	}
-
 	[UltimaPacket( "World Object", UltimaPacketDirection.FromServer, 0xF3 )]
 	public class WorldObjectPacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private WorldObjectType _DataType;
@@ -28,7 +15,7 @@ namespace Ultima.Spy.Packets
 		public WorldObjectType DataType { get { return _DataType; } }
 
 		private int _ObjectID;
-		[UltimaPacketProperty( "Object ID", "0x{0:X}" )]
+		[UltimaPacketProperty( "Object ID", "0{0:X}" )]
 		public int ObjectID { get { return _ObjectID; } }
 
 		private int _ObjectIDOffset;

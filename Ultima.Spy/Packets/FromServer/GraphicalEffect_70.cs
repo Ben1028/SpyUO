@@ -3,15 +3,6 @@ using System.IO;
 
 namespace Ultima.Spy.Packets
 {
-	public enum GraphicalEffectType
-	{
-		SourceToDestination		= 0x0,
-		LightningStrike			= 0x1,
-		StayWithDestination		= 0x2,
-		StayWithSource			= 0x3,
-		SpecialEffect			= 0x4,
-	}
-
 	[UltimaPacket( "Graphical Effect", UltimaPacketDirection.FromServer, 0x70 )]
 	public class GraphicalEffectPacket : UltimaPacket, IUltimaEntity
 	{
@@ -20,15 +11,15 @@ namespace Ultima.Spy.Packets
 		public GraphicalEffectType Type	{ get { return _Type; }	}
 
 		private uint _Source;
-		[UltimaPacketProperty( "Source", "0x{0:X}" )]
+		[UltimaPacketProperty( "Source", "0{0:X}" )]
 		public uint Source { get { return _Source; } }
 
 		private uint _Target;
-		[UltimaPacketProperty( "Target", "0x{0:X}" )]
+		[UltimaPacketProperty( "Target", "0{0:X}" )]
 		public uint Serial { get { return _Target; } }
 
 		private int _ObjectID;
-		[UltimaPacketProperty( "Object ID", "0x{0:X}" )]
+		[UltimaPacketProperty( "Object ID", "0{0:X}" )]
 		public int ObjectID { get { return _ObjectID; } }
 
 		private int _SourceX;

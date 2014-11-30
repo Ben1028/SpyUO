@@ -3,17 +3,6 @@ using System.IO;
 
 namespace Ultima.Spy.Packets
 {
-
-    public enum WeatherTypes
-	{
-		Rain			= 0x00,
-		FierceStorm		= 0x01,
-		Snow			= 0x02,
-		Storm			= 0x03,
-		SetTemperature	= 0xFE,
-		StopAllWeather	= 0xFF
-	}
-
 	[UltimaPacket( "Change Weather", UltimaPacketDirection.FromServer, 0x65 )]
 	public class ChangeWeatherPacket : UltimaPacket
     {

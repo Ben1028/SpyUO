@@ -5,74 +5,11 @@ using System;
 
 namespace Ultima.Spy.Packets
 {
-	public enum BuffType
-	{
-		Strength				= 0x1,
-		Dexterity				= 0x2,
-		Intelligence			= 0x3,
-		HitPoints				= 0x7,
-		Stamina					= 0x8,
-		Mana					= 0x9,
-		HitPointRegeneration	= 0xA,
-		StaminaRegeneration		= 0xB,
-		ManaRegeneration		= 0xC,
-		NightSignt				= 0xD,
-		Luck					= 0xE,
-		ReflectPhysical			= 0x10,
-		EnhancePotions			= 0x11,
-		AttackChance			= 0x12,
-		DefendChance			= 0x13,
-		SpellDamage				= 0x14,
-		CastRecovery			= 0x15,
-		CastSpeed				= 0x16,
-		ManaCost				= 0x17,
-		ReagentCost				= 0x18,
-		WeaponSpeed				= 0x19,
-		WeaponDamage			= 0x1A,
-		PhysicalResistance		= 0x1B,
-		FireResistance			= 0x1C,
-		ColdResistance			= 0x1D,
-		PoisonResistance		= 0x1E,
-		EnergyResistance		= 0x1F,
-		MaxPhysicalResistance	= 0x20,
-		MaxFireResistance		= 0x21,
-		MaxColdResistance		= 0x22,
-		MaxPoisonResistance		= 0x23,
-		MaxEnergyResistance		= 0x24,
-		AmmoCost				= 0x26,
-		KarmaLoss				= 0x28,
-		BuffIcons				= 0x3EA,
-	}
-
-	public enum BuffSourceType
-	{
-		Character					= 0,
-		TwoHandedWeapon				= 50,
-		OneHandedWeaponOrSpellbook	= 53,
-		ShieldOrRangedWeapon		= 54,
-		Shoes						= 55,
-		PantsOrLegs					= 56,
-		HelmOrHat					= 58,
-		Gloves						= 59,
-		Ring						= 60,
-		Talisman					= 61,
-		NecklaceOrGorget			= 62,
-		Waist						= 64,
-		InnnerTorso					= 65,
-		Bracelet					= 66,
-		MiddleTorso					= 69,
-		Earring						= 70,
-		Arms						= 71,
-		CloakOrQuiver				= 72,
-		OuterTorso					= 74,
-		Spells						= 1000,
-	}
-
 	[UltimaPacket( "Buffs", UltimaPacketDirection.FromServer, 0xDF )]
 	public class BuffsPacket : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private BuffType _Type;
@@ -112,7 +49,7 @@ namespace Ultima.Spy.Packets
 		public BuffSourceType SourceType { get { return _SourceType; } }
 
 		private int _IconID;
-		[UltimaPacketProperty( "Icon ID", "0x{0:X}" )]
+		[UltimaPacketProperty( "Icon ID", "0{0:X}" )]
 		public int IconID { get { return _IconID; } }
 
 		private int _QueueIndex;

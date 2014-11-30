@@ -5,31 +5,11 @@ using System.Text;
 
 namespace Ultima.Spy.Packets
 {
-	public enum AnimationType
-	{
-		Attack			= 0,
-		Parry			= 1,
-		Block			= 2,
-		Die				= 3,
-		Impact			= 4,
-		Fidget			= 5,
-		Eat				= 6,
-		Emote			= 7,
-		Alert			= 8,
-		TakeOff			= 9,
-		Land			= 10,
-		Spell			= 11,
-		StartCombat		= 12,
-		EndCombat		= 13,
-		Pillage			= 14,
-		Spawn			= 15
-	}
-
 	[UltimaPacket( "Mobile Animation", UltimaPacketDirection.FromServer, 0xE2 )]
 	public class MobileAnimation : UltimaPacket, IUltimaEntity
 	{
         private uint _Serial;
-        [UltimaPacketProperty("Serial", "0x{0:X}")]
+        [UltimaPacketProperty("Serial", "0{0:X}")]
         public uint Serial { get { return _Serial; } }
 
 		private AnimationType _AnimationType;

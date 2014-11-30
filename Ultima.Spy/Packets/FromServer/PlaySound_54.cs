@@ -6,7 +6,7 @@ namespace Ultima.Spy.Packets
 	public class PlaySoundPacket : UltimaPacket
 	{
 		private int _Flags;
-		[UltimaPacketProperty( "Flags", "0x{0:X}" )]
+		[UltimaPacketProperty( "Flags", "0{0:X}" )]
 		public int Flags { get { return _Flags; } }
 
 		private int _SoundID;
