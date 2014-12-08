@@ -125,11 +125,8 @@ namespace Ultima.Spy
 		public string ReadUnicodeString()
 		{
 			int length = ReadInt16();
-			byte[] data = new byte[ length ];
 
-			_Input.Read( data, 0, length );
-
-			return Encoding.Unicode.GetString( data );
+            return ReadUnicodeString(length);
 		}
 
 		/// <summary>
@@ -142,19 +139,22 @@ namespace Ultima.Spy
 			if ( length == 0 )
 				return String.Empty;
 
+            int bound = (length << 1);
+
 			int size = length * 2;
 			byte[] data = new byte[ size ];
 
 			_Input.Read( data, 0, size );
 
-            // Gambiarra pra funcionar kkkkkkkkkkkkkk se vai bugar depois nao sei!
-            int k = 0;
-            byte[] _data = new byte[data.Length];
-            for (int j = 0; j < data.Length; j++) { if (data[j] != 0) { _data[k] = data[j]; k++; } }
-            Array.Resize(ref _data, k);
+            StringBuilder sb = new StringBuilder();
 
-            return Encoding.ASCII.GetString(_data).ToString();
-            //return Encoding.Encoding.Unicode.GetString(data);
+            int c;
+            int idx = 0;
+
+            while ((idx + 1) < bound && (c = ((data[idx++] << 8) | data[idx++])) != 0)
+                sb.Append((char)c);
+
+            return sb.ToString();
 		}
 
 		/// <summary>
