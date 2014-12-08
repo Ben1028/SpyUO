@@ -51,7 +51,7 @@ namespace Ultima.Spy.Packets
 			_Font = reader.ReadInt16();
 			_Language = reader.ReadAsciiString( 4 );
 			_EntityName = reader.ReadAsciiString( 30 );
-			_Message = reader.ReadUnicodeString( ( Data.Length - 44 ) / 2 );
+            _Message = reader.ReadUnicodeString((Data.Length - 48)/2);
 		}
 	}
 }
