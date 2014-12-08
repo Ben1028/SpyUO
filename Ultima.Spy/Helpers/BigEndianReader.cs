@@ -147,7 +147,14 @@ namespace Ultima.Spy
 
 			_Input.Read( data, 0, size );
 
-			return Encoding.Unicode.GetString( data );
+            // Gambiarra pra funcionar kkkkkkkkkkkkkk se vai bugar depois nao sei!
+            int k = 0;
+            byte[] _data = new byte[data.Length];
+            for (int j = 0; j < data.Length; j++) { if (data[j] != 0) { _data[k] = data[j]; k++; } }
+            Array.Resize(ref _data, k);
+
+            return Encoding.ASCII.GetString(_data).ToString();
+            //return Encoding.Encoding.Unicode.GetString(data);
 		}
 
 		/// <summary>
